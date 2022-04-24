@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Pay Calc</title>
+
+    <link rel="stylesheet" href="PayCalcStyle.css" />
+
+    <script>
+        function calc() {
+            let taxCode = GetTaxCode();
+
+            document.getElementById("_taxCodeValue").value = taxCode._value.toFixed(2);
+            document.getElementById("_monthlyValue").value = taxCode._monthlyValue.toFixed(2);
+            document.getElementById("_taxCodeLetter").value = taxCode._letter;
+        }
+
+        function GetTaxCode() {
+
+            CheckTaxCode();
+
+            const taxCode = {};
+
+            taxCode._code = document.getElementById("_taxCode").value;
+            taxCode._letter = taxCode._code.replace(/[0-9]/g, '').substr(0, 1);
+            taxCode._number = parseInt(taxCode._code.replace(/\D/g, ''));
+            if (taxCode._number == 0 || isNaN(taxCode._number)) {
+                taxCode._value = 0;
+            } else {
+                taxCode._value = (parseInt(taxCode._code.replace(/\D/g, '')) * 10 + 9) * (taxCode._code.includes('K') ? -1.0 : 1.0).toFixed(2);
+            }
+
+            taxCode._monthlyValue = Math.round((taxCode._value / 12) * 100) / 100;
+
+            return taxCode;
+        }
+
+        function CheckTaxCode() {
+            if (document.getElementById("_taxCode").value == "") {
+                document.getElementById("_taxCode").value = "1257L";
+            }
+
+            if (document.getElementById("_taxCode").value.replace(/[0-9]/g, '') == "") {
+                document.getElementById("_taxCode").value = document.getElementById("_taxCode").value + "L";
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <div class="banner">
+        <h1>Pay Calc</h1>
+    </div>
+<div class="container">
+
+
+    <form class="form1" onsubmit="calc(); return false">
+        <div class="container">
+            <div><label>Tax Code</label></div>
+            <div><input type="text" id="_taxCode" size="8" maxlength="6"></div>
+
+            <div><label>Tax Code Value</label></div>
+            <div><input type="text" class="numeric" id="_taxCodeValue" size="8" readonly="true"></div>
+
+            <div><label>Monthly Value</label></div>
+            <div><input type="text" class="numeric" id="_monthlyValue" size="8" readonly="true"></div>
+
+            <div><label>Tax Code Letter</label></div>
+            <div><input type="text" id="_taxCodeLetter" size="2" readonly="true"></div>
+
+            <div></div>
+            <div><input type="submit" value="Calc" style="width:80px"></div>
+        </div>
+
+
+    </form>
+</div>
+
+</body>
+
+</html>

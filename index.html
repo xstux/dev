@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Flow ID Generator</title>
+		<link rel="stylesheet" href="style.css">
+		<script src="script01.js"></script>
+	</head>
+
+
+	<body>
+	<h1>Flow ID Generator</h1><hr>
+
+	<ul>
+		<li>Click [Get New Flow ID] to generate a new flow ID.</li>
+		<li>This is displayed and copied to the clipboard</li>
+		<li>[Ctrl] + V to paste it into the Fusion Flow ID field.</li>
+	</ul>
+
+
+
+	<form>
+
+		Initials: <input type="text" size="3" maxlength="3" id="tInitials" /></input>
+		<button type="button" onclick="displayFlowID();"/>Get New Flow ID</button><br /><br />
+		<input type="text" size="16" id="tFlowID" readonly="true"/></input>
+	</form>
+
+	<script>
+		//displayFlowID();
+	</script>
+	</body>
+
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Flow ID Generator</title>
+
+		<script type="text/javascript">
+
+
+
+			function formatValue(val, digits)
+            {
+                return String(val).padStart(digits, '0');
+            }
+
+
+
+            function displayFlowID()
+            {
+				let myDate = new Date();
+
+				let y = formatValue(myDate.getFullYear(), 4);
+	            let m = formatValue(eval(myDate.getMonth() + 1), 2);
+	            let d = formatValue(myDate.getDate(), 2);
+	            let h = formatValue(myDate.getHours(), 2);
+	            let min = formatValue(myDate.getMinutes(), 2);
+
+				let initials = document.getElementById("tInitials").value;
+                let otherid = document.getElementById("tOtherID").value;
+
+                if (otherid.length > 0)
+                {
+                    otherid = "_" + otherid;
+                }
+
+                if (initials.length == 0)
+                {
+                    document.getElementById("tInitials").style.backgroundColor = "#FF0";
+                }
+                else
+                {
+                    document.getElementById("tInitials").style.backgroundColor = "#FFF";
+                }
+
+                let flowID = initials + otherid + '_' + y + m + d + '_' + h + min;
+                document.getElementById("tFlowID").value = flowID;
+                navigator.clipboard.writeText(flowID);
+            }
+
+
+        </script>
+
+        <style media="screen">
+            body
+            {
+                font: 10pt monospace;
+                background-color: #fff;
+            }
+
+            input
+            {
+                font: 10pt monospace;
+            }
+
+
+            h1
+            {
+                font: 12pt monospace;
+                font-weight: bold;
+
+            }
+
+        </style>
+
+	</head>
+
+
+	<body onfocus="displayFlowID();">
+
+
+
+
+	<h1>Flow ID Generator</h1><hr>
+
+	<ul>
+        <li>Enter your initials to customise your Flow ID</li>
+		<li>Click [Get New Flow ID] to generate a new Flow ID (XX_YYYYMMDD_HHMM)</li>
+		<li>This is displayed and copied to the clipboard</li>
+		<li>Switch back to Fusion and [Ctrl] + V to paste it into the Fusion Flow ID field.</li>
+	</ul>
+    <br />
+
+	<form onsubmit="displayFlowID(); return false;">
+		Initials: <input type="text" size="4" maxlength="4" id="tInitials" /><br /><br />
+        Other ID: <input type="text" size="18" maxlength="18" id="tOtherID" />
+		<input type="submit" value="Get New Flow ID" onclick="displayFlowID();"/><br /><br />
+		Flow ID: &nbsp<input type="text" size="30" id="tFlowID" readonly="true"/>
+	</form>
+
+	<script>
+		//document.getElementById("tInitials").addEventListener("blur", ()=>{displayFlowID();});
+		document.getElementById("tInitials").addEventListener("input", ()=>{displayFlowID();});
+		document.getElementById("tOtherID").addEventListener("input", ()=>{displayFlowID();});
+	</script>
+
+	</body>
+
+</html>

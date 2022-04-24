@@ -1,0 +1,52 @@
+body {
+    font: 10pt monospace;
+    background-color: #fff;
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: 8px;
+}
+
+input {
+    font: 10pt monospace;
+    border-radius: 4px;
+    border: 1px solid #666;
+}
+
+h1 {
+    font: 12pt monospace;
+    font-weight: bold;
+    padding: 0px 4px;
+}
+
+table {
+    border-spacing: 2px;
+    border-collapse: separate;
+}
+
+td {
+    padding: 4px;
+}
+
+.banner {
+    background-color: #ddd;
+    padding: 0 4px;
+    border-radius: 4px;
+}
+
+.numeric {
+    text-align: right;
+    border-radius: 4px;
+}
+
+.form1 {
+    background-color: #7BB4DB;
+    padding: 8px;
+    border-radius: 4px;
+    width: 400px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 120px);
+    gap: 12px;
+}

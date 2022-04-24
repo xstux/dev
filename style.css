@@ -1,0 +1,14 @@
+/* Stylesheet */
+
+body
+{
+    font: 10pt sans-serif;
+    background-color: #ccc;
+}
+
+h1
+{
+    font: 14pt sans-serif;
+    font-weight: bold;
+
+}
