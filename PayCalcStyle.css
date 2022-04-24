@@ -33,6 +33,12 @@ td {
     border-radius: 4px;
 }
 
+.banner-child
+{
+    float: left;
+    width:50%;
+}
+
 .numeric {
     text-align: right;
     border-radius: 4px;
