@@ -2,13 +2,33 @@
 
 body
 {
-    font: 10pt sans-serif;
+    font: 12pt monospace;
     background-color: #ccc;
 }
 
 h1
 {
-    font: 14pt sans-serif;
+    font: 20pt monospace;
     font-weight: bold;
+    color: #fff;
+}
 
+hr.banner
+{
+    background-color: none;
+    border-style: dotted none none none;
+
+    border-top-width: 8px;
+    border-color: #fff;
+    width: 10%;
+}
+
+div.banner
+{
+    text-align: center;
+}
+
+a:hover
+{
+    background-color: #eee;
 }

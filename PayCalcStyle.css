@@ -28,7 +28,7 @@ td {
 }
 
 .banner {
-    background-color: #ddd;
+    background-color: #ccc;
     padding: 0 4px;
     border-radius: 4px;
 }
@@ -55,4 +55,9 @@ td {
     display: grid;
     grid-template-columns: repeat(2, 120px);
     gap: 12px;
+}
+
+a:hover
+{
+    background-color: #eee;
 }
