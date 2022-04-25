@@ -16,9 +16,9 @@ h1
 hr.banner
 {
     background-color: none;
-    border-style: dotted none none none;
-
-    border-top-width: 8px;
+    border-style: none;
+    border-top-style: dotted;
+    border-top-width: 12px;
     border-color: #fff;
     width: 10%;
 }
