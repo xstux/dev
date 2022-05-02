@@ -1,0 +1,133 @@
+.bottom-cloud {
+    position: absolute;
+    left: 20%;
+    bottom: 300px;
+    animation-duration: 30s;
+    animation-name: left_to_right;
+    animation-direction: normal;
+    animation-iteration-count: infinite;
+}
+
+.top-cloud {
+    position: absolute;
+    right: 20%;
+    top: 50px;
+    animation-duration: 10s;
+    animation-name: right_to_left;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+
+@keyframes left_to_right {
+    from {
+        left: 0;
+        opacity:0;
+    }
+
+    50%
+    {
+        opacity: 1;
+    }
+
+    to {
+        left: 30%;
+        opacity: 0;
+    }
+}
+
+@keyframes right_to_left {
+    from {
+        right: 10%;
+        opacity: 0
+    }
+
+    50% {
+        opacity: 0.8
+    }
+
+    to {
+        right: 30%;
+        opacity: 0;
+    }
+}
+
+
+
+.mountain {
+    opacity: 0.5;
+    animation-duration: 0.5s;
+    animation-name: mountain-opacity-on;
+
+}
+
+.mountain:hover {
+    opacity: 1.0;
+    animation-duration: 0.5s;
+    animation-name: mountain-opacity-off;
+}
+
+
+
+@keyframes mountain-opacity-off {
+    from {
+        opacity: 0.5;
+    }
+    to {
+        opacity: 1.0;
+    }
+}
+
+@keyframes mountain-opacity-on {
+    from {
+        opacity: 1.0;
+    }
+    to {
+        opacity: 0.5;
+    }
+}
+
+@keyframes pulse {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 0.5;
+    }
+}
+
+.box
+{
+    position: absolute;
+    height: 10px;
+    width:20px;
+    animation-name: pulse;
+
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    background-color: #0f0;
+
+}
+
+.box1
+{
+        left:0;
+        animation-duration: 2s;
+}
+.box2
+{
+
+        left:10px;
+        animation-duration: 3.2s;
+}
+
+.box3 {
+        left:20px;
+        animation-duration: 1.4s;
+}
+
+.box4 {
+
+        left:30px;
+        animation-duration: 1.9s;
+}
