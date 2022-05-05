@@ -109,10 +109,17 @@ hr
 
 .skill-row {
     width: 50%;
-    margin: 100px auto;
+    margin: 80px auto;
     text-align: left;
     line-height: 2;
     vertical-align: middle;
+}
+
+.skill-row::after
+{
+    content: "";
+    clear: both;
+    display: block;
 }
 
 .computer-image {
