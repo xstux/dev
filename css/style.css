@@ -3,14 +3,20 @@
 body
 {
     font: 12pt monospace;
-    background-color: #ccc;
+    background-color: #fff;
 }
 
-h1
+body > h1
 {
     font: 20pt monospace;
     font-weight: bold;
     color: #fff;
+}
+
+
+div.main-content
+{
+    padding: 1rem;
 }
 
 hr.banner
@@ -19,7 +25,7 @@ hr.banner
     border-style: none;
     border-top-style: dotted;
     border-top-width: 12px;
-    border-color: #fff;
+    border-color: #ccc;
     width: 10%;
 }
 
@@ -28,7 +34,3 @@ div.banner
     text-align: center;
 }
 
-a:hover
-{
-    background-color: #eee;
-}
