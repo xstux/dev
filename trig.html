@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>Trig</title>
+<style>
+    body, input {
+        font: 8pt Verdana;
+    }
+    
+    #myCanvas {
+        background-color: white;
+        border: 1px solid black;
+    }
+
+
+</style>
+
+</head>
+
+<body>
+<script>
+    function drawGrid()
+    {
+        const ctx = document.getElementById("myCanvas").getContext("2d");
+        ctx.clearRect(0,0,800,800);
+        ctx.strokeStyle = "#eeeeee";
+        ctx.lineWidth = 1;
+        for (let x = 20; x < 800; x += 20)
+        {
+            ctx.beginPath();
+            ctx.moveTo(x,0);
+            ctx.lineTo(x,800);
+            ctx.moveTo(0, x);
+            ctx.lineTo(800, x);
+            ctx.closePath();
+            ctx.stroke();
+        }
+    }
+
+    function drawAxes()
+    {
+        const ctx = document.getElementById("myCanvas").getContext("2d");
+        ctx.strokeStyle = "#666666";
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(0, 400);
+        ctx.lineTo(800,400);
+        ctx.moveTo(400, 0);
+        ctx.lineTo(400,800);
+        ctx.closePath();
+        
+        ctx.stroke();
+    }
+
+    function drawUnitCircle()
+    {
+        const ctx = document.getElementById("myCanvas").getContext("2d");
+        ctx.strokeStyle = "#0000ff";
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.arc(400,400,200,0,2*Math.PI);
+        ctx.closePath();
+        ctx.stroke();
+    }
+
+    function drawTriangle()
+    {
+        const ctx = document.getElementById("myCanvas").getContext("2d");
+        
+
+        let angle_deg = document.getElementById("mySlider").value;
+        let angle_rad = angle_deg * (Math.PI / 180.0);
+
+        let x = Math.cos(angle_rad) * 200.0;
+        let y = Math.sin(angle_rad) * 200.0;
+        let tan_y = (1 / Math.sin(angle_rad)) * 200.0;
+        let sec_x = (1 / Math.cos(angle_rad)) * 200.0;
+
+        ctx.lineWidth = 3;
+        ctx.font = "12px Verdana";
+
+        ctx.strokeStyle = "#00ff00";
+        ctx.beginPath();
+        ctx.moveTo(400,400);
+        ctx.lineTo(x + 400, -y + 400);
+        ctx.closePath();
+        ctx.stroke();
+        
+
+        ctx.strokeStyle = "#0088ff";
+        ctx.beginPath();
+        ctx.moveTo(x + 400, -y + 400);
+        ctx.lineTo(x + 400, 400);
+        ctx.closePath();
+        ctx.stroke();
+        ctx.fillStyle = "#0088ff";
+        let txt = "sin [y: " + (y / 200).toFixed(4) + "]";
+        ctx.fillText(txt, x + 400, (-y) + 400);
+
+
+
+        ctx.strokeStyle = "#ff0000";
+        ctx.beginPath();
+        ctx.moveTo(400, 400);
+        ctx.lineTo(x + 400, 400);
+        ctx.closePath();
+        ctx.stroke();
+        ctx.fillStyle = "#ff0000";
+        txt = "cos [x: " + (x / 200).toFixed(4) + "]";
+        ctx.fillText(txt, (x) + 400, 412);
+
+
+
+        ctx.strokeStyle = "#ff00ff";
+        ctx.beginPath();
+        ctx.moveTo(x + 400, -y + 400);
+        ctx.lineTo(sec_x + 400, 400);
+        ctx.closePath();
+        ctx.stroke();
+
+        ctx.strokeStyle = "#ff8800";
+        ctx.beginPath();
+        ctx.moveTo(x + 400, -y + 400);
+        ctx.lineTo(400, -tan_y + 400);
+        ctx.closePath();
+        ctx.stroke();
+
+    }
+
+
+    function draw()
+    {
+        drawGrid();
+        drawAxes();
+        drawUnitCircle();
+        drawTriangle();
+    }
+
+    window.onload = draw;
+</script>
+<canvas id="myCanvas" width="800" height="800"></canvas>
+    
+<form action="">
+    Use the slider to change the angle.
+    <input type="text" name="" id="angle" value="45" size="3" oninput="document.getElementById('mySlider').value=this.value; draw(); document.getElementById('angle_r').value = (this.value * (Math.PI/180.0)).toFixed(6);">
+    <input type="range" min="0" max="360" value="45" class="slider" id="mySlider" style="width: 500px;" oninput="draw(); document.getElementById('angle').value = this.value; document.getElementById('angle_r').value = (this.value * (Math.PI/180.0)).toFixed(4);">
+    <input type="text" name="" id="angle_r" size="6">
+</form>
+
+
+</body>
+
+</html>
